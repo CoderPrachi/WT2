@@ -1,0 +1,213 @@
+<html>
+<head>
+<title>Registration form</title>
+<link rel='stylesheet' href='js-form-validation.css' type='text/css' />
+
+</head>
+
+<style>
+body{
+background-image:url('bg.jpg');
+background-repeat:no-repeat;
+background-attachment:fixed;
+background-size:100% 100%
+
+}
+</style>
+
+<body>
+
+<div id="d12" style="position:absolute;top:30px;left:20%;height:40px;width:60%;background-color:wheat;">
+<form>
+<table cellpadding="5" cellspacing="5">
+<tr>
+<td rowspan="2">
+<a href="index.html">
+<input type="button" name="btnHome" value="Home" />
+</a>
+</td>
+<td rowspan="2">
+<a href="register.html">
+<input type="button" name="btnHome" value="Register" />
+</a>
+</td>
+<td rowspan="2">
+<a href="register.html">
+<input type="button" name="btnHome" value="Show Students" />
+</a>
+</td>
+
+</tr>
+</table>
+</form>
+</div>
+<center>
+
+<div class="dval" style="position:absolute;top:80px;left:20%;height:80%;width:60%;background-color:cornsilk;">
+
+<center>
+<marquee scrolldelay="10" scrollamount="10"><u><h3>Welcome To Patil Academy</h3></u></marquee><br/>
+<h2>Prachi Patil Coaching Classes</h2>
+<h1>Admission Form</h1>
+
+
+<form action="student.html" id="f1" method="get">
+<center>
+<table>'
+<tr>
+<td><label for="username">Name:</label></td>
+<td><input type="text" name="name" id="name" size="50" /></td><br/>
+</tr>
+<tr>
+<td><label for="address">Address:</label></td>
+<td><input type="text" id="address"  size="50" /></td><br/>
+
+</tr>
+<tr>
+<td><label for="passid">College Name</label></td>
+<td><input type="text" id="clg"  size="50"/></td><br/>
+</tr>
+
+<tr>
+<td><label for="mobno">Mobile No</label></td>
+<td><input type="text" id="mobno"  size="10" maxlength="10"/></td><br/>
+</tr>
+
+<tr>
+<td><label for="country">Subject:</label></td>
+<td><select id="subject">
+<option selected="" value="Default">(Please select a SUBJECT)</option>
+<option value="c">C</option>
+<option value="cpp">C++</option>
+<option value="jv">JAVA</option>
+<option value="php">PHP</option>
+<option value="dnet">ASP.NET</option>
+</select></td><br/>
+</tr>
+
+<tr>
+<td><label for="email">Email:</label></td>
+<td><input type="email" id="email" size="50" /></td>
+</tr>
+<tr>
+<td><label id="gender">Sex:</label></td>
+<td><input type="radio" id="s" name="sex" value="Male" /><span>Male</span></td>
+<td><input type="radio" id="s" name="sex" value="Female" /><span>Female</span></td>
+</tr>
+<tr>
+<td><label>Prefered Language:</label></td>
+<td><input type="checkbox" name="en" value="en" checked /><span>English</span></td>
+<td><input type="checkbox" name="nonen" value="noen" /><span>Hindi</span></td>
+</tr>
+
+<tr>
+<td></td>
+<td><button type="button" class = "btn btn-dark" onclick="myFunct();">SUBMIT</button></td>
+</tr>
+</table>
+</center>
+</form>
+
+</center>
+
+
+
+</div>
+<div class="container" style="position:absolute;top:90%;left:20%;height:20%;width:60%;background-color:cyan;">
+      <div class="content-first">
+        <h4 class="text-uppercase">LIST OF PEOPLE REGISTERED:- </h4>
+        <table id="myTable"></table>
+        <!-- <button type="button" class = "btn btn-dark" onclick="myFunct();">SUBMIT</button> -->
+      </div>
+</center>
+<script type="text/javascript">
+
+function myFunct() {
+
+  var z = document.getElementById("name").value;
+  if (z == "")
+  {
+    alert("Name must be filled out");
+    return false;
+  }
+  var z = document.getElementById("email").value;
+  if (z == "")
+  {
+    alert("EMAIL must be filled out");
+    return false;
+  }
+  var n = z.includes("@");
+  if(n==false)
+  {
+    alert("Enter a valid Email address")
+    return false
+  }
+  var zz = document.getElementById("mobno").value;
+  if (zz == "")
+  {
+    alert("Phone Number should be filled");
+    return false;
+  }
+  y = parseInt(zz);
+  if(y>10000000000 || y <1000000000 || isNaN(zz))
+  {
+    alert("Enter a valid phone number");
+    return false;
+  }
+  var z = document.getElementById("clg").value;
+  if (z == "")
+  {
+    alert("college must be filled out");
+    return false;
+  }
+  
+
+  
+
+  
+
+   alert("Thank you for registering for Coaching. Soon a confirmation mail along with the trainers informations will be sent to the provided email. You can confirm you registration by clicking on Registration link.Thank you!!!!");
+
+
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  cell1.innerHTML = document.getElementById("name").value;
+  cell2.innerHTML = document.getElementById("email").value;
+  cell3.innerHTML = document.getElementById("mobno").value;
+
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("clg").value = "";
+  document.getElementById("mobno").value = "";
+  document.getElementById("address").value = "";
+
+  document.getElementById("myCheck").checked = false;
+  document.getElementById("myCheck1").checked = false;
+  document.getElementById("myCheck2").checked = false;
+
+}
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
